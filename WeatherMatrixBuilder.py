@@ -20,11 +20,11 @@ class WeatherMatrixBuilder:
             gr2 = np.linspace(min(self.longitudes) - 0.3, max(self.longitudes) + 0.3, num=4096)
             self.x1, self.y1 = np.meshgrid(gr1, gr2)
 
+
     def produce(self, time, data="new_data"):
         t = []
         u = []
         for i in self.indexes:
-            print(f"{data}/{i}--{time}.json")
             with open(f"{data}/{i}--{time}.json") as f:
                 j = json.load(f)
             t.append(j[6]["T"])
