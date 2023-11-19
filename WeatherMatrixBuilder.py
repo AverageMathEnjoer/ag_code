@@ -34,4 +34,6 @@ class WeatherMatrixBuilder:
 
         z_t = t_interpolator(self.x1, self.y1)
         z_u = u_interpolator(self.x1, self.y1)
+        z_t = np.nan_to_num(z_t, nan=-300)
+        z_u = np.nan_to_num(z_u, nan=-300)
         np.save(f"days_log/{time}.npy", np.array([z_t, z_u]))
